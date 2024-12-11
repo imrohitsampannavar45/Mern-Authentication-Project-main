@@ -25,7 +25,7 @@ const Navbar = () => {
             }
 
         } catch (error) {
-
+            toast.error(error.message)
         }
     }
 
