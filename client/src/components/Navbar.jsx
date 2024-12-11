@@ -11,6 +11,25 @@ const Navbar = () => {
 
 
 
+    const sendVerificationotp = async () => {
+        try {
+            axios.defaults.withCredentials = true;
+
+            const { data } = await axios.post(backendUrl + '/api/auth/send-verify-otp')
+
+            if (data.success) {
+                navigate('/email-verify')
+                toast.success(data.message)
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+
+        }
+    }
+
+
 
     const logout = async () => {
         try {
